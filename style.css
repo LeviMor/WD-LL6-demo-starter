@@ -1,7 +1,14 @@
+/*
+  Accessibility improvement: Set all text color to black for better readability.
+*/
+body, h1, h2, h3, h4, h5, h6, p, a, li, label, input, select, textarea, span, div {
+  color: #000 !important;
+}
+
 body {
   background-color: #eaeaea;
   font-family: "Times New Roman", Times, serif;
-  color: #999;
+  color: #000;
   padding: 0;
   top: 0 !important;
 }
@@ -199,6 +206,17 @@ textarea.form-control {
   border-color: #d0d0d0;
 }
 
+/* Accessibility improvement: Increase contrast for the Send button. */
+.btn-outline-dark {
+  background-color: #000 !important; /* Black background for high contrast */
+  color: #fff !important;            /* White text for high contrast */
+  border-color: #000 !important;     /* Black border */
+}
+
+.btn-outline-dark i {
+  color: #fff !important;             /* White icon for high contrast */
+}
+
 /* Form validation styles */
 .error-message {
   display: none;
@@ -255,4 +273,60 @@ textarea.form-control {
 .footer {
   background-color: #f9f9f9;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*
+  Accessibility improvement: Support for Right-to-Left (RTL) languages.
+  This CSS will automatically adjust layout and alignment for RTL languages.
+*/
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .navbar-nav {
+  /* Reverse nav links order for RTL */
+  flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .navbar .ms-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+html[dir="rtl"] .text-center {
+  text-align: center !important;
+}
+
+html[dir="rtl"] .testimonial-card, 
+html[dir="rtl"] .testimonial-1, 
+html[dir="rtl"] .testimonial-3 {
+  /* Reverse flex direction for testimonials */
+  flex-direction: column-reverse !important;
+  text-align: right;
+}
+
+html[dir="rtl"] .testimonial-number {
+  text-align: right;
+}
+
+html[dir="rtl"] .contact-form, 
+html[dir="rtl"] label, 
+html[dir="rtl"] input, 
+html[dir="rtl"] select, 
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+html[dir="rtl"] .form-check {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+html[dir="rtl"] .form-check-input {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+html[dir="rtl"] .footer {
+  text-align: right;
 }
